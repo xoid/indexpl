@@ -1,8 +1,11 @@
 #!/usr/bin/perl
 
-use v5.10;
-use CGI::FastTemplate;
-use strict;
+use v5.10; 
+use CGI::FastTemplate;    
+use Data::Dumper::Names;
+use strict; 
+print "Content-type: text/plain\n\n";
+use lib '/root/indexpl';
 use mylib;
 
 my $tpl = new CGI::FastTemplate("tmpl");
@@ -16,4 +19,10 @@ $tpl->assign( TITLE => mylib::title(),
               
 
 
+
+sub d($$)
+{
+	print STDOUT Dumper @_;
+	print STDERR Dumper @_;
+}
 
