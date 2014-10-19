@@ -4,20 +4,20 @@ use v5.10;
 use CGI::FastTemplate;    
 use Data::Dumper::Names;
 use strict; 
+my $dir = '/var/www/html/indexpl';
 print "Content-type: text/plain\n\n";
-use lib '/root/indexpl';
-use mylib;
+use lib '/var/www/html/indexpl';
+require mylib;
 
-my $tpl = new CGI::FastTemplate("tmpl");
-$tpl->define( main    => "main.tpl",
-              row     => "table_row.tpl",
-              all     => "table_all.tpl");
+my $tpl = new CGI::FastTemplate($dir.'/tmpl');
+$tpl->define( main    => 'main.html');
               
 $tpl->assign( TITLE => mylib::title(),
               TAGS  => mylib::tags(),
+			ALL_TAGS => mylib::all_tags(),
               TEXT  => mylib::text() );              
-              
-
+$tpl->parse(CONTENT   => 'main');
+$tpl->print();
 
 
 sub d($$)
