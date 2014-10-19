@@ -5,7 +5,7 @@ use CGI::FastTemplate;
 use Data::Dumper::Names;
 use strict; 
 my $dir = '/var/www/html/indexpl';
-print "Content-type: text/plain\n\n";
+print "Content-type: text/html\n\n";
 use lib '/var/www/html/indexpl';
 require mylib;
 
