@@ -1,13 +1,15 @@
 #!/usr/bin/perl
+my $dir;
+BEGIN { $ENV{'SCRIPT_FILENAME'} =~ m/(.*\/).*/;  $dir = $1; }
 
 use v5.10; 
 use CGI::FastTemplate;    
 use Data::Dumper::Names;
 use strict; 
-my $dir = '/var/www/html/indexpl';
+
 print "Content-type: text/html\n\n";
-use lib '/var/www/html/indexpl';
-require mylib;
+use lib $dir;
+use mylib;
 
 my $tpl = new CGI::FastTemplate($dir.'/tmpl');
 $tpl->define( main    => 'main.html');
