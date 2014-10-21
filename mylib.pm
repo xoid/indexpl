@@ -1,14 +1,12 @@
 package mylib;
 
 my $debug=1;
-my $dbh;
-
-BEGIN { $dbh = dbh(); }
+my $dbh; BEGIN { $dbh = dbh(); }
 
 sub dbh 
 {
 
-    $dbh = DBI->connect_cached( connect("DBI:mysql:indexpl", 'indexpl', 'indexpl' );
+    $dbh = DBI->connect_cached( connect("DBI:mysql:indexpl", 'indexpl', 'indexpl' ) or warn 'dbh: Cant connect mysql';
 	return $dbh;
 }
 

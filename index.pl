@@ -1,6 +1,6 @@
 #!/usr/bin/perl
 my $dir;
-BEGIN { $ENV{'SCRIPT_FILENAME'} =~ m/(.*\/).*/;  $dir = $1; }
+BEGIN { $ENV{'SCRIPT_FILENAME'} =~ m/(.*)\/.*/;  $dir = $1; }
 
 use v5.10; 
 use CGI::FastTemplate;    
@@ -16,7 +16,7 @@ $tpl->define( main    => 'main.html');
               
 $tpl->assign( TITLE => mylib::title(),
               TAGS  => mylib::tags(),
-			ALL_TAGS => mylib::all_tags(),
+		   ALL_TAGS => mylib::all_tags(),
               TEXT  => mylib::text() );              
 $tpl->parse(CONTENT   => 'main');
 $tpl->print();
@@ -24,7 +24,7 @@ $tpl->print();
 
 sub d($$)
 {
-	print STDOUT Dumper @_;
+	#print STDOUT Dumper @_;
 	print STDERR Dumper @_;
 }
 
